@@ -46,10 +46,10 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let playerScore = 0;
   let computerScore = 0;
-  const playerSelection = "rock";
   for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt("Rock, Paper, or Scissors?")
     const computerSelection = getComputerChoice();
-    console.log(computerSelection);
+    console.log(playerSelection + " vs " + computerSelection);
     if (playRound(playerSelection, computerSelection).includes("win")) {
       playerScore++;
     }
