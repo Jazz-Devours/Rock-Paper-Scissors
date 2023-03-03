@@ -15,10 +15,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (computerSelection === "ERROR") {
-    return "An unexpected problem has occurred";
-  }
-  else if (playerSelection.toUpperCase() === computerSelection)
+  if (playerSelection.toUpperCase() === computerSelection)
     return "Draw! Try again.";
   else if (playerSelection.toUpperCase() === "ROCK") {
     if (computerSelection === "PAPER") {
@@ -45,8 +42,33 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 }
- 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  const playerSelection = "rock";
+  for (let i = 0; i < 5; i++) {
+    const computerSelection = getComputerChoice();
+    console.log(computerSelection);
+    if (playRound(playerSelection, computerSelection).includes("win")) {
+      playerScore++;
+    }
+    else if (playRound(playerSelection, computerSelection).includes("lose")) {
+      computerScore++;
+    }
+    else if (playRound(playerSelection, computerSelection).includes("Draw")) {
+      i--;
+    }
+    else {
+      return "An unexpected error has occurred";
+    }
+  }
+  if (playerScore > computerScore) {
+    return playerScore + " : " + computerScore + " You Win!";
+  }
+  else {
+    return playerScore + " : " + computerScore + " You Lose!"
+  }
+}
+
+console.log(game());
