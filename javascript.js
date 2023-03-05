@@ -15,6 +15,10 @@ function getComputerChoice() {
 }
 
 function playRound() {
+  if (playerScore == 5 || computerScore == 5) {
+    playerScore = 0;
+    computerScore = 0;
+  }
   if (playerScore < 5 && computerScore < 5) {
     const playerSelection = this.id;
     const computerSelection = getComputerChoice();
