@@ -15,41 +15,49 @@ function getComputerChoice() {
 }
 
 function playRound() {
-  const playerSelection = this.id;
-  const computerSelection = getComputerChoice();
-  if (playerSelection === computerSelection)
-    results.textContent = "Draw! Try again.";
-    else if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
-      computerScore++;
-      results.textContent = "Paper beats Rock! You lose!";
+  if (playerScore < 5 && computerScore < 5) {
+    const playerSelection = this.id;
+    const computerSelection = getComputerChoice();
+    if (playerSelection === computerSelection)
+      results.textContent = "Draw! Try again.";
+      else if (playerSelection === "rock") {
+      if (computerSelection === "paper") {
+        computerScore++;
+        results.textContent = "Paper beats Rock! You lose!";
+      }
+      else {
+        playerScore++;
+        results.textContent = "Rock beats Scissors! You win!";
+      }
     }
-    else {
-      playerScore++;
-      results.textContent = "Rock beats Scissors! You win!";
+    else if (playerSelection === "paper") {
+      if (computerSelection === "rock") {
+        playerScore++;
+        results.textContent = "Rock beats Paper! You win!";
+      }
+      else {
+        computerScore++;
+        results.textContent = "Scissors beats Paper! You lose!";
+      }
+    }
+    else if (playerSelection === "scissors") {
+      if (computerSelection === "rock") {
+        computerScore++;
+        results.textContent = "Rock beats Scissors! You lose!";
+      }
+      else {
+        playerScore++;
+        results.textContent = "Scissors beats Paper! You win!";
+      }
+    }
+    scoreboard.textContent = `Player: ${playerScore} vs. Computer: ${computerScore}`;
+    if (playerScore == 5) {
+      return results.textContent = `Player beats Computer ${playerScore} to ${computerScore}!!`
+    }
+    else if (computerScore == 5) {
+      return results.textContent = `Computer beats Player ${computerScore} to ${playerScore}!!`
     }
   }
-  else if (playerSelection === "paper") {
-    if (computerSelection === "rock") {
-      playerScore++;
-      results.textContent = "Rock beats Paper! You win!";
-    }
-    else {
-      computerScore++;
-      results.textContent = "Scissors beats Paper! You lose!";
-    }
-  }
-  else if (playerSelection === "scissors") {
-    if (computerSelection === "rock") {
-      computerScore++;
-      results.textContent = "Rock beats Scissors! You lose!";
-    }
-    else {
-      playerScore++;
-      results.textContent = "Scissors beats Paper! You win!";
-    }
-  }
-  scoreboard.textContent = `Player: ${playerScore} vs. Computer: ${computerScore}`;
 }
 
 const buttons = document.querySelectorAll('button');
