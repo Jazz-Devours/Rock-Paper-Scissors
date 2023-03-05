@@ -74,28 +74,3 @@ let computerScore = 0;
 scoreboard.textContent = `Player: ${playerScore} vs. Computer: ${computerScore}`;
 
 const results = document.querySelector('#results');
-
-/*function game() {
-
-  //for (let i = 0; i < 5; i++) {
-   console.log(playerSelection + " vs " + computerSelection);
-    if (playRound(playerSelection, computerSelection).includes("win")) {
-      playerScore++;
-    }
-    else if (playRound(playerSelection, computerSelection).includes("lose")) {
-      computerScore++;
-    }
-    else if (playRound(playerSelection, computerSelection).includes("Draw")) {
-
-    }
-    else {
-      return "An unexpected error has occurred";
-    }
-  }
-  if (playerScore > computerScore) {
-    return playerScore + " : " + computerScore + " You Win!";
-  }
-  else {
-    return playerScore + " : " + computerScore + " You Lose!"
-  }
-}*/
