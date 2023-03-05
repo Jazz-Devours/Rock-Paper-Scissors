@@ -52,10 +52,10 @@ function playRound() {
     }
     scoreboard.textContent = `Player: ${playerScore} vs. Computer: ${computerScore}`;
     if (playerScore == 5) {
-      return results.textContent = `Player beats Computer ${playerScore} to ${computerScore}!!`
+      return results.textContent = `YOU WIN! ${playerScore} to ${computerScore}!!`
     }
     else if (computerScore == 5) {
-      return results.textContent = `Computer beats Player ${computerScore} to ${playerScore}!!`
+      return results.textContent = `YOU LOSE! ${computerScore} to ${playerScore}!!`
     }
   }
 }
